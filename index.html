@@ -77,9 +77,13 @@
       window.addEventListener("DOMContentLoaded", () => {
         const bground = document.getElementById("background");
 
-        window.addEventListener("touchstart", () => {
+        window.addEventListener("pointerdown", () => {
           let imgIndex = Math.floor(Math.random() * 6);
           bground.setAttribute("material", `src: #bg${imgIndex}`);
+        });
+
+        window.addEventListener("pointerdown", () => {
+          console.log("Touch detected");
         });
       });
     </script>
