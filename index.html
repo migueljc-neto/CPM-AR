@@ -19,7 +19,12 @@
   <body>
     <a-scene embedded arjs>
       <a-assets>
-        <img src="./assets/bg-image/layer-bg 0.jpg" id="bg" />
+        <img src="./assets/bg-image/layer-bg 0.jpg" id="bg0" />
+        <img src="./assets/bg-image/layer-bg 1.jpg" id="bg1" />
+        <img src="./assets/bg-image/layer-bg 2.jpg" id="bg2" />
+        <img src="./assets/bg-image/layer-bg 3.jpg" id="bg3" />
+        <img src="./assets/bg-image/layer-bg 4.jpg" id="bg4" />
+        <img src="./assets/bg-image/layer-bg 5.jpg" id="bg5" />
         <img src="./assets/layer-wire.png" id="wire" />
         <img src="./assets/layer-hand.png" id="hand" />
         <img src="./assets/layer-border.png" id="border" />
@@ -32,7 +37,7 @@
           rotation="-90 0 0"
           width="1"
           height="1.4"
-          material="src: #bg"
+          material="src: #bg0"
           id="background"
         ></a-plane>
         <a-plane
@@ -74,10 +79,7 @@
 
         window.addEventListener("touchstart", () => {
           let imgIndex = Math.floor(Math.random() * 6);
-          bground.setAttribute(
-            "src",
-            `./assets/bg-image/layer-bg ${imgIndex}.jpg`
-          );
+          bground.setAttribute("material", `src: #bg${imgIndex}`);
         });
       });
     </script>
