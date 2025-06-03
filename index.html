@@ -19,7 +19,7 @@
   <body>
     <a-scene embedded arjs>
       <a-assets>
-        <img src="./assets/layer-bg.jpg" id="bg" />
+        <img src="./assets/bg-image/layer-bg.jpg" id="bg" />
         <img src="./assets/layer-wire.png" id="wire" />
         <img src="./assets/layer-hand.png" id="hand" />
         <img src="./assets/layer-border.png" id="border" />
@@ -33,6 +33,7 @@
           width="1"
           height="1.4"
           material="src: #bg"
+          id="background"
         ></a-plane>
         <a-plane
           position="0 0.02 0"
@@ -67,5 +68,18 @@
       </a-marker>
       <a-entity camera id="camera-rig"></a-entity>
     </a-scene>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const bground = document.getElementById("bg");
+
+        window.addEventListener("touchstart", () => {
+          let imgIndex = Math.floor(Math.random() * 6);
+          bground.setAttribute(
+            "src",
+            `./assets/bg-image/layer-bg ${imgIndex}.jpg`
+          );
+        });
+      });
+    </script>
   </body>
 </html>
